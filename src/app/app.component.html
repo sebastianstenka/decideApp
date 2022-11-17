@@ -12,8 +12,17 @@
       (hasErrors)="handleError($event)"
     >
     </app-one>
-    <app-two *ngSwitchCase="'two'" [appValues]="appValues"></app-two>
-    <app-three *ngSwitchCase="'three'" [appValues]="appValues"></app-three>
+
+    <app-two
+      *ngSwitchCase="'two'"
+      [appValues]="appValues"
+      (hasErrors)="handleError($event)"
+    ></app-two>
+    <app-three
+      *ngSwitchCase="'three'"
+      [appValues]="appValues"
+      (reset)="reset()"
+    ></app-three>
   </ng-container>
 
   <div *ngIf="error.show" class="alert alert-danger" role="alert">

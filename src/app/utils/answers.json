@@ -1,3 +1,11 @@
 {
-  "answers": ["As I see it, yes.", "Ask again later.", "Ask again later, Nye."]
+  "answers": [
+    "As I see it, yes.",
+    "Ask again later.",
+    "Ask again later, Bye.",
+    "It is certain.",
+    "Yes.",
+    "Most Likely.",
+    "No."
+  ]
 }

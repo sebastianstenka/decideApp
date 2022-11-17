@@ -10,17 +10,24 @@ import answerValue from './utils/answers.json';
 })
 export class AppComponent {
   title = 'decideApp';
+  error: AppError;
+  appValues: AppValues;
 
-  appValues: AppValues = {
-    visiblePanel: 'one',
-    question: '',
-    mode: false,
-    answers: answerValue.answers,
-    custom: [],
-    answer: null,
-  };
+  constructor() {
+    this.error = new AppError(false, '');
+    this.reset();
+  }
 
-  error: AppError = new AppError(false, '');
+  reset() {
+    this.appValues = {
+      visiblePanel: 'one',
+      question: '',
+      mode: false,
+      answers: answerValue.answers,
+      custom: [],
+      answer: null,
+    };
+  }
 
   handleError(error: AppError) {
     this.error = error;
