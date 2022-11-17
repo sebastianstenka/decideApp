@@ -36,7 +36,7 @@ export class TwoComponent {
   }
 
   addCustom(custom) {
-    if (custom !== '') {
+    if (custom.value !== '') {
       this.appValues.custom.push(custom.value);
     } else {
       this.hasErrors.emit(new AppError(true, 'The field is empty'));
