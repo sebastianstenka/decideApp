@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AppError } from './models/appError';
 import { AppValues } from './models/appValues';
 import answerValue from './utils/answers.json';
 
@@ -7,7 +8,7 @@ import answerValue from './utils/answers.json';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'decideApp';
 
   appValues: AppValues = {
@@ -19,7 +20,13 @@ export class AppComponent implements OnInit {
     answer: null,
   };
 
-  ngOnInit(): void {
-    console.log(answerValue.answers);
+  error: AppError = new AppError(false, '');
+
+  handleError(error: AppError) {
+    this.error = error;
+
+    setTimeout(() => {
+      this.error = new AppError(false, '');
+    }, 2000);
   }
 }

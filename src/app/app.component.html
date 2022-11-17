@@ -6,8 +6,17 @@
     <h1>The decide app</h1>
   </div>
   <ng-container [ngSwitch]="appValues.visiblePanel">
-    <app-one *ngSwitchCase="'one'" [appValues]="appValues"> </app-one>
+    <app-one
+      *ngSwitchCase="'one'"
+      [appValues]="appValues"
+      (hasErrors)="handleError($event)"
+    >
+    </app-one>
     <app-two *ngSwitchCase="'two'" [appValues]="appValues"></app-two>
     <app-three *ngSwitchCase="'three'" [appValues]="appValues"></app-three>
   </ng-container>
+
+  <div *ngIf="error.show" class="alert alert-danger" role="alert">
+    {{ error.message }}
+  </div>
 </div>
